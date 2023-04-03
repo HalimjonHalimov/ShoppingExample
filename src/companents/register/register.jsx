@@ -32,9 +32,9 @@ const Register = () => {
 
     useEffect(() => {
         if(loggidIn) {
-            navigate('/')
+            navigate('/');
         }
-    }, []);
+    }, [loggidIn]);
 
 
     return (

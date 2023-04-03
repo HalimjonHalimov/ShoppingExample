@@ -31,9 +31,10 @@ const Login = () => {
 
     useEffect(() => {
         if(loggidIn) {
-            navigate('/')
+            navigate('/');
         }
     }, [loggidIn]);
+
 
     return (
         <div className='wrapper'>

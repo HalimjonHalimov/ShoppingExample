@@ -8,7 +8,7 @@ import { getItem } from '../../helpers/persistance-local';
 
 const App = () => {
     const dispatch = useDispatch()
-    const { loggidIn } = useSelector(state => state.auth)
+    // const { loggidIn } = useSelector(state => state.auth)
 
     const getUser = async() => {
         try {
