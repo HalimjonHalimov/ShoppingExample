@@ -4,11 +4,13 @@ import { getArticleFailure, getArticleStart, getArticleSucces } from "../../redu
 import ArticleService from "../../service/articles";
 import Moment from 'react-moment';
 import { Spinner } from './../'
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
     const { articles, isLoading } = useSelector(state => state.article)
-    console.log( isLoading );
+    const navigate = useNavigate() 
     const dispatch = useDispatch()
+
     const getArticles = async() => {
         dispatch(getArticleStart())
         try {
@@ -21,6 +23,8 @@ const Main = () => {
     useEffect(() => {
         getArticles()
     }, []);
+
+    
 
     return (
         <div className="main-menu">
@@ -44,7 +48,7 @@ const Main = () => {
                         </div> */}
                         <div className="card-buttons">
                             <button className="card-btn edit">Edit</button>
-                            <button className="card-btn view">View</button>
+                            <button onClick={() => navigate(`/articles/${item.slug}`)} className="card-btn view">View</button>
                             <button className="card-btn delete">Delete</button>
                         </div>
                         <div className="card-info-author">

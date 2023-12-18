@@ -1,15 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import AuthService from '../../service/auth';
 import { useDispatch, useSelector } from 'react-redux'
-import { Login, Register, Navbar, Main } from './../';
+import { Login, Register, Navbar, Main, ArticlesDetails } from './../';
 import { signUserSuccess } from '../../reducers/auth';
 import { useEffect } from 'react';
 import { getItem } from '../../helpers/persistance-local';
 
 const App = () => {
     const dispatch = useDispatch()
-    // const { loggidIn } = useSelector(state => state.auth)
-
+    
     const getUser = async() => {
         try {
             const response = await AuthService.userGet()
@@ -34,6 +33,7 @@ const App = () => {
                 <Route path='/'  element={<Main />}></Route>
                 <Route path='/register' element={<Register />}></Route>
                 <Route path='/login' element={<Login />}></Route>
+                <Route path='/articles/:slug' element={<ArticlesDetails />}></Route>
             </Routes>
         </div>
     );

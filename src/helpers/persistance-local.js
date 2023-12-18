@@ -16,7 +16,7 @@ export const getItem = (key) => {
 
 export const removeItem = (key) => {
     try {
-        
+        localStorage.removeItem(key)
     } catch (error) {
         console.log('Error remove user token');
     }
